@@ -9,10 +9,21 @@ PHONE_NUMBER = 'your_phone_number'
 client = TelegramClient('userbot_session', API_ID, API_HASH)
 translator = Translator()
 
-@client.on(events.NewMessage(outgoing=True, pattern='/translate'))
+@client.on(events.NewMessage(outgoing=True, pattern='/te'))
 async def handler(event):
 
-    original_text = event.message.message[len('/translate '):]
+    original_text = event.message.message[len('/te '):]
+
+    translation = translator.translate(original_text, src='ru', dest='en').text
+
+    new_text = f"{original_text}\n\n{translation}"
+
+    await event.edit(new_text)
+
+@client.on(events.NewMessage(outgoing=True, pattern='/td'))
+async def handler(event):
+
+    original_text = event.message.message[len('/td '):]
 
     translation = translator.translate(original_text, src='ru', dest='en').text
 
