@@ -1,5 +1,5 @@
 {
     "add_original_message": false,
-    "capitalize_first_letter": true,
+    "capitalize_first_letter": false,
     "original_language": "ru"
 }
